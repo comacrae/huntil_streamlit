@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-from app.api import Requester
-req = Requester()
+from app import api
+req = api.Requester()
 
 
 @st.cache_data

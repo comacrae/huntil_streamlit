@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-from app.api import Requester
+from app import api
 
-req = Requester()
+req = api.Requester()
 
 @st.cache_data
 def get_site_name_df() -> pd.DataFrame:

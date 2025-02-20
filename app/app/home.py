@@ -23,7 +23,9 @@ Displays all the harvest data I was able to obtain from IDNR record requests and
 """)
 st.subheader("Code", divider = "grey")
 st.markdown("""* [Streamlit frontend Github repo](https://github.com/comacrae/huntil_streamlit)
-            * [FastAPI backend Github repo](https://github.com/comacrae/huntil_backend)
-            * [FastAPI docs](https://hunt-il-backend-fd6fc52c0ba0.herokuapp.com/docs)""")
+
+* [FastAPI backend Github repo](https://github.com/comacrae/huntil_backend)
+
+* [FastAPI docs](https://hunt-il-backend-fd6fc52c0ba0.herokuapp.com/docs)""")
 st.subheader("Author", divider = "grey")
 st.markdown("If you enjoy this project and want to see more cool stuff, please visit [my website](https://www.comacrae.com) or my [Github](https://www.github.com/comacrae). - Colin MacRae")

@@ -3,7 +3,9 @@ import pandas as pd
 import pydeck as pdk
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
-from app.api import Requester
+from app import api
+
+req = api.Requester()
 
 
 def get_map(df, address_coords):
@@ -106,7 +108,6 @@ def get_sorted_options(huntable_df, geo_df):
   return species_options, season_options, counties_options
 
 
-req = Requester()
 
 geolocator = Nominatim(user_agent="huntil_backend_streamlit")
 geo_df = get_geography_df()
