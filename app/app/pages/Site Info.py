@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from app import api
+from app.pages.app_api import api
 
 req = api.Requester()
 

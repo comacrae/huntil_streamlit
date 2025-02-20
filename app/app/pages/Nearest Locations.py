@@ -3,7 +3,8 @@ import pandas as pd
 import pydeck as pdk
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
-from app import api
+from app.pages.app_api import api
+
 
 req = api.Requester()
 
