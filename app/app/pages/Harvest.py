@@ -62,6 +62,7 @@ class Requester:
     url = self.base_url + f"harvest/"
     return self.get_paginated_response(url)
 
+req = Requester()
 
 @st.cache_data
 def get_harvest_df():
