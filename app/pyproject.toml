@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.12"
 pandas = "^2.2.3"
 streamlit = "^1.42.0"
+geopy = "^2.4.1"
+pydeck = "^0.9.1"
 
 
 [build-system]

@@ -4,24 +4,34 @@ class Requester:
   def __init__(self, base_url:str="https://hunt-il-backend-fd6fc52c0ba0.herokuapp.com/api/")-> list:
     self.base_url = base_url
   
-  def get_and_parse(self,url):
-    res = requests.get(url)
+  def get_and_parse(self,url,params=None):
+    res = requests.get(url,params=params)
     if(res.ok):
       return res.json()
     else:
-      raise Exception("HTTP Code: ", res.status_code)
+      raise Exception("HTTP Code: ", res.status_code, res.content)
+  
+  def get_paginated_response(self, url:str) ->list:
+    full_list = []
+    offset = 0
+    res_list = self.get_and_parse(url, params={'offset':offset,'limit':100})
+    while len(res_list) > 0:
+      full_list += res_list
+      offset += 100
+      res_list = self.get_and_parse(url, params={'offset':offset,'limit':100})
+    return full_list
 
   def get_site_names(self)-> list:
     url = self.base_url + 'sites/names'
-    return self.get_and_parse(url)
-      
+    return self.get_paginated_response(url)
+
   def get_site_name_info(self,site_id:str) ->dict:
     url = self.base_url + f"sites/{site_id}/names"
     return self.get_and_parse(url)
   
   def get_huntable_species(self) -> list:
     url = self.base_url + 'huntable-species/'
-    return self.get_and_parse(url)
+    return self.get_paginated_response(url)
   
   def get_huntable_species_by_site(self, site_id:str) -> dict:
     url = self.base_url + f"huntable-species/site/{site_id}"
@@ -49,7 +59,7 @@ class Requester:
 
   def get_harvest(self) -> list:
     url = self.base_url + f"harvest/"
-    return self.get_and_parse(url)
+    return self.get_paginated_response(url)
 
 
   
